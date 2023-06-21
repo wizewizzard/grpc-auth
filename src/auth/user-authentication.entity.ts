@@ -1,9 +1,12 @@
 import { Exclude } from "class-transformer";
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class UserAuthentication {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn('identity', {
+        name: 'id',
+        type: 'int8'
+    })
     id!: number;
 
     @Column({ type: 'varchar' })

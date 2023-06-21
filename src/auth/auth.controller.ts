@@ -54,8 +54,8 @@ export class AuthController {
             if (e instanceof NotUniqueException) {
                 const notUnique = e as NotUniqueException;
                 return {
-                    status: HttpStatus.CREATED,
-                    error: [`User ${notUnique.fields.map(f => `Not unique value for ${f}`,join(', '))}`]
+                    status: HttpStatus.BAD_REQUEST,
+                    error: [`User was not regitered. ${notUnique.fields.map(f => `Not unique value for ${f}`, join(', '))}`]
                 }
             } else {
                 throw e;

@@ -15,7 +15,6 @@ export class AuthService {
         const auth = new UserAuthentication();
         auth.password = password;
         auth.email = email;
-        auth.id = 20;
         const alreadyExists = await this.userAuthenticationRepository.exist({ where: { email: auth.email }});
         if (alreadyExists) {
             throw new NotUniqueException(['email']);
